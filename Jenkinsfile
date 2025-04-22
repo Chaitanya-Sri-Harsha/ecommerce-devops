@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Clone') {
             steps {
-                git 'https://github.com/your-username/ecommerce-devops.git'
+                git 'https://github.com/Chaitanya-Sri-Harsha/ecommerce-devops.git'
             }
         }
 
