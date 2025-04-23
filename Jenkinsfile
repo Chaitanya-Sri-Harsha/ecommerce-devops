@@ -2,10 +2,16 @@ pipeline {
     agent any
 
     stages {
+        stage('Clean Workspace') {
+            steps {
+                cleanWs()
+            }
+        }
+
         stage('Clone') {
             steps {
                 checkout([$class: 'GitSCM',
-                          branches: [[name: '*/master']],
+                          branches: [[name: '*/master']], // change to '*/master' if that's your default
                           userRemoteConfigs: [[url: 'https://github.com/Chaitanya-Sri-Harsha/ecommerce-devops.git']]
                 ])
             }
