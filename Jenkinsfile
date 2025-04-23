@@ -2,15 +2,12 @@ pipeline {
     agent any
 
     stages {
-        stage('Clean Workspace') {
-            steps {
-                deleteDir() // cleans the workspace
-            }
-        }
-
         stage('Clone') {
             steps {
-                git 'https://github.com/Chaitanya-Sri-Harsha/ecommerce-devops.git'
+                checkout([$class: 'GitSCM',
+                          branches: [[name: '*/master']],
+                          userRemoteConfigs: [[url: 'https://github.com/Chaitanya-Sri-Harsha/ecommerce-devops.git']]
+                ])
             }
         }
 
